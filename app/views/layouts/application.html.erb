@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Piments</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  </head>
+  <body>
+  <% if session[:current_admin_id] && !session[:current_user_id] %>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header"><a href="/admin/home" class="navbar-brand navbar-link">Web@cadémie - Piments <span style="color: deepskyblue"><%= @admin[0][:login] %></span></a>
+        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+      </div>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li role="presentation"><a href="/admin/event">Evénements </a></li>
+          <li role="presentation"><a href="/admin/default">Administrations </a></li>
+          <li role="presentation"><a href="/admin/promotion">Promotions </a></li>
+          <li role="presentation"><a href="/admin/user">Utilisateur </a></li>
+          <li role="presentation"><a href="/admin/logout">Déconnexion </a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <% end %>
+      <% if session[:current_user_id] && !session[:current_admin_id] %>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header"><a href="/home" class="navbar-brand navbar-link">Web@cadémie - Piments <span style="color: deepskyblue"><%= @user[0][:email] %></span></a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          </div>
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li role="presentation"><a href="/user/event">Évenement </a></li>
+              <li role="presentation"><a href="/user/account">Mon compte </a></li>
+              <li role="presentation"><a href="/logout">Déconnexion </a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <% end %>
+    <%= yield %>
+  <% console %>
+  </body>
+</html>

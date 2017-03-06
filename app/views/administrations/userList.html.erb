@@ -1,0 +1,26 @@
+
+     <table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Piments</th>
+    <th>Promotions</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <% @user.each do |user| %>
+    <th scope="row"><%= user.id %></th>
+    <td><%= user.email %></td>
+    <td><%= user.role %></td>
+    <td><%= user.nbrPiments %></td>
+    <td><%= user.promotion %></td>
+    <td><%= link_to "Profile", controller: "administrations", action: "updateUser", id: user.id  %></td>
+  </tr>
+  <% end %>
+
+</table>
+<%= will_paginate @user %>

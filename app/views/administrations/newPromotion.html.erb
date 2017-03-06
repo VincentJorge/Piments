@@ -1,0 +1,24 @@
+<%= form_for :newPromo do |f| %>
+    <p>
+      <%= f.label "Nom de la promotion" %><br>
+      <%= f.text_field :name, class: "form-control", placeholder: "Nom de la promotion" %>
+    </p>
+    <p>
+      <%= f.label "Ecole de la promotion" %><br>
+      <%= f.text_field :school, class: "form-control", placeholder: "Ecole de la promotion" %>
+    </p>
+    <p>
+      <%= f.label "Année de la promotion" %><br>
+      <%= f.select :date, (Time.zone.now.year)..(Time.zone.now.year + 20) %>
+    </p>
+    <p>
+      <%= f.hidden_field :administrateur, value: @admin[0][:id] %>
+
+    </p>
+    <p>
+      <%= f.file_field :csv %>
+    </p>
+    <p>
+      <%= f.submit "Crée une promotion", class: "form-control"%>
+    </p>
+<% end %>

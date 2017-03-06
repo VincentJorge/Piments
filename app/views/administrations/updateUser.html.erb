@@ -1,0 +1,24 @@
+<%= form_for :updateUser do |f| %>
+    <%= f.hidden_field :id, value: @user.id %>
+  <p>
+    Email :
+   <%= f.text_field :email, value: @user.email %>
+  </p>
+  <p>
+    Role :
+     <%= f.text_field :role, value: @user.role %>
+  </p>
+  <p>
+    Piments :
+       <%= f.number_field :nbrPiments, value: @user.nbrPiments %>
+  </p>
+  <p>
+    Promotion :
+       <%= f.number_field :promotion, value: @user.promotion %>
+  </p>
+
+  <p>
+    <%= f.submit value: "Mettre a jour"%>
+  </p>
+
+<% end %>

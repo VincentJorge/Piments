@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="animated bounceInLeft text-center">Les 5 derniers evenements crée</h1></div>
+  </div>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Nom de l'évenement</th>
+    <th>Description de l'évenement</th>
+    <th>Nombre de piments</th>
+    <th>Date de début</th>
+    <th>Date de fin</th>
+  </tr>
+  </thead>
+<% @event.each do |event| %>
+    <td class="animated bounceInDown"><%= event.name %></td>
+    <td class="animated bounceInDown"><%= event.descrip %></td>
+    <td class="animated bounceInDown"><%= event.numberPiments %></td>
+    <td class="animated bounceInDown"><%= event.dateStart %></td>
+    <td class="animated bounceInDown"><%= event.dateEnd %></td>
+      </table>
+<% end %>

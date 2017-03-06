@@ -1,0 +1,31 @@
+<% if flash[:add_admin] %>
+    <div class="animated bounceInDown alert alert-success" role="alert">
+      <div class="notice"><%= flash[:add_admin] %></div>
+    </div>
+<% end %>
+<%= form_for :newAdmin do |f| %>
+    <p>
+      <%= f.label "Login du compte" %><br>
+      <%= f.text_field :login, class: "form-control", placeholder: "Login du compte" %>
+    </p>
+    <p>
+      <%= f.label "Password du compte" %><br>
+      <%= f.password_field :password, class: "form-control", placeholder: "Password du compte" %>
+    </p>
+    <p>
+      <%= f.label "Email du compte" %><br>
+      <%= f.email_field :email, class: "form-control", placeholder: "Email du compte" %>
+      <%= f.hidden_field :role, value: "admin" %>
+    </p>
+    <p>
+      <%= f.label "Prénom de l'admin" %><br>
+      <%= f.text_field :fname, class:"form-control" %>
+    </p>
+    <p>
+      <%= f.label "Nom de l'admin" %><br>
+      <%= f.text_field :lname, class:"form-control" %>
+    </p>
+    <p>
+      <%= f.submit "Crée le compte", class: "form-control"%>
+    </p>
+<% end %>

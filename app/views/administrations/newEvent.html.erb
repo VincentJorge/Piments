@@ -1,0 +1,28 @@
+<%= form_for :newEvent do |f| %>
+    <p>
+      <%= f.label "Nom de l'évenement" %><br>
+      <%= f.text_field :name, class: "form-control", placeholder: "Nom de l'évenement" %>
+    </p>
+    <p>
+      <%= f.label "Description de l'évenement" %><br>
+      <%= f.text_field :descrip, class: "form-control", placeholder: "Description de l'évenement" %>
+    </p>
+    <p>
+      <%= f.label "Nombre de piments" %><br>
+      <%= f.number_field :numberPiments, class: "form-control", placeholder: "Nombre de piments" %>
+    </p>
+    <p>
+      <%= f.label "Promotions" %><br>
+      <%= f.collection_select :promotions, Promo.all, :id, :id, prompt: true, class: "form-control" %>    </p>
+    <p>
+      <%= f.label "Date de début" %><br>
+      <%= f.date_field :dateStart, class:"form-control" %>
+    </p>
+    <p>
+      <%= f.label "Date de fin" %><br>
+      <%= f.date_field :dateEnd, class:"form-control" %>
+    </p>
+    <p>
+      <%= f.submit "Crée l'événement", class: "form-control"%>
+    </p>
+<% end %>

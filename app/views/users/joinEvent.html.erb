@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Nom de l'évenement</th>
+    <th>Description de l'évenement</th>
+    <th>Nombre de piments</th>
+    <th>Date de début</th>
+    <th>Date de fin</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+<% @event.each do |event| %>
+
+    <td><%= event.name %></td>
+    <td><%= event.descrip %></td>
+    <td><%= event.numberPiments %></td>
+    <td><%= event.dateStart %></td>
+    <td><%= event.dateEnd %></td>
+    <td><a href='/user/newEvent'>Joindre</a></td>
+    </table>
+<% end %>

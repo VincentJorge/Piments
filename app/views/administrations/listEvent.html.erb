@@ -1,0 +1,40 @@
+<% if flash[:del_event] %>
+    <div class="animated bounceInDown alert alert-success" role="alert">
+      <div class="notice"><%= flash[:del_event] %></div>
+    </div>
+<% end %>
+<% if flash[:add_event] %>
+    <div class="animated bounceInDown alert alert-success" role="alert">
+      <div class="notice"><%= flash[:add_event] %></div>
+    </div>
+    <% end %>
+
+     <table class="table">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nom de l'évenement</th>
+    <th>Description de l'évenement</th>
+    <th>Nombre de piments</th>
+    <th>Promotions</th>
+    <th>Date de début</th>
+    <th>Date de fin</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <% @events.each do |event| %>
+    <th scope="row"><%= event.id %></th>
+    <td><%= event.name %></td>
+    <td><%= event.descrip %></td>
+    <td><%= event.numberPiments %></td>
+    <td><%= event.promotions %></td>
+    <td><%= event.dateStart %></td>
+    <td><%= event.dateEnd %></td>
+        <td><%= link_to "Supprimer", controller: "administrations", action: "eventDel", id: event.id %> / <%= link_to "Edité", controller: "administrations", action: "update" %></td>
+  </tr>
+  <% end %>
+
+</table>
+<%= will_paginate @events %>

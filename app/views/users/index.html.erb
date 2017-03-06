@@ -1,0 +1,22 @@
+<%= form_for :login, :url => {:action => "login"} do |f| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="login-card"><%= image_tag "avatar_2x.png", class: "profile-img-card" %>
+            <p class="profile-name-card"> </p>
+            <form class="form-signin"><span class="reauth-email"> </span>
+              <%= f.text_field :login, placeholder: "ex: epitech@epitech.eu", class: "form-control input-lg", id: "inputEmail" %>
+              <p></p>
+              <%= f.password_field :password, placeholder: "Password 365", class: "form-control input-lg", id: "inputPassword" %>
+              <p></p>
+              <button class="btn btn-primary btn-block btn-lg btn-signin" type="submit">Sign in</button>
+            </form>
+          </div>
+          <div class="col-lg-12 col-lg-offset-0 col-md-12"><%= image_tag "wac.png", class: "center-block" %></div>
+        </div>
+      </div>
+    </div>
+<% end %>
+<% if flash[:notice_fail_log] %>
+    <div class="notice"><%= flash[:notice_fail_log] %></div>
+<% end %>
